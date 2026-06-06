@@ -1,0 +1,23 @@
+{
+  "name": "mafaldaribeiro.com",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "import:ghost": "python3 scripts/import_ghost.py"
+  },
+  "dependencies": {
+    "astro": "^6.4.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "yaml-language-server": "^1.23.0",
+    "yaml": "^2.9.0"
+  }
+}

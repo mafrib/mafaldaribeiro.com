@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pages = (await getCollection('pages'))
+  .filter((page) => !page.data.draft)
+  .sort((a, b) => a.data.navOrder - b.data.navOrder);
+const featured = pages.filter((page) => ['portfolio', 'photography', 'about'].includes(page.data.slug));
+---
+
+<BaseLayout description="Portfolio and photography by Mafalda Ribeiro.">
+  <section class="hero">
+    <p class="eyebrow">Portfolio & photography</p>
+    <h1>Mafalda Ribeiro</h1>
+    <p class="hero-copy">
+      A small, editable static version of the old site: portfolio work,
+      photography, and an about page, ready to maintain from GitHub.
+    </p>
+    <div class="hero-actions">
+      <a class="button" href="/portfolio/">View portfolio</a>
+      <a class="button secondary" href="/photography/">View photography</a>
+    </div>
+  </section>
+
+  <section class="page-grid" aria-label="Site sections">
+    {featured.map((page) => (
+      <a class="page-card" href={`/${page.data.slug}/`}>
+        <span>{page.data.kind}</span>
+        <h2>{page.data.title}</h2>
+        {page.data.excerpt && <p>{page.data.excerpt}</p>}
+      </a>
+    ))}
+  </section>
+</BaseLayout>
