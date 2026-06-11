@@ -5,6 +5,7 @@ dist/
 .env.*
 .DS_Store
 _ghost/
+.wrangler/
 
 # local previews / scratch
 *.log

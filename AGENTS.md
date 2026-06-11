@@ -5,4 +5,5 @@
 - Content pages are in `src/content/pages/*.md`.
 - Public assets are in `public/content/`.
 - Before claiming success, run `npm run build`.
-- Keep deployment on GitHub Pages via `.github/workflows/deploy.yml` unless Mafalda explicitly chooses another host.
+- Deployment is on Cloudflare Workers via `.github/workflows/deploy.yml`.
+- Cloudflare config is in `wrangler.toml` (static assets only, no SSR).

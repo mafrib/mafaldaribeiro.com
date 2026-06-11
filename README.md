@@ -42,11 +42,29 @@ The raw Ghost export and copied original assets live under `_ghost/` and are ign
 
 ## Deployment
 
-The repository includes a GitHub Actions workflow for GitHub Pages. Once the repo is created on the GitHub account that will own the site:
+The site deploys to **Cloudflare Workers** via GitHub Actions.
 
-1. Push `main`.
-2. In GitHub repo settings, enable Pages with **GitHub Actions** as the source.
-3. Set the custom domain to `mafaldaribeiro.com`.
-4. Point DNS at GitHub Pages.
+### Setup (one-time)
 
-`public/CNAME` is already set to `mafaldaribeiro.com`.
+1. Push `main` to GitHub.
+2. In the [Cloudflare dashboard](https://dash.cloudflare.com), go to **Workers & Pages** and note your **Account ID**.
+3. Go to **My Profile → API Tokens** and create a token with **Cloudflare Workers** edit permissions.
+4. In the GitHub repo, go to **Settings → Secrets and variables → Actions** and add:
+   - `CLOUDFLARE_API_TOKEN` — the API token from step 3.
+5. Push to `main` or trigger the workflow manually. The site will deploy to `mafaldaribeiro-com.workers.dev`.
+
+### Custom domain
+
+In the Cloudflare dashboard, go to your Worker → **Settings → Domains & Routes** and add `mafaldaribeiro.com`. Cloudflare handles TLS automatically.
+
+### Local deploy (optional)
+
+```bash
+npx wrangler login
+npm run build
+npx wrangler deploy
+```
+
+## License
+
+This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
