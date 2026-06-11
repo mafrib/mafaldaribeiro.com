@@ -1,5 +1,17 @@
 name = "mafaldaribeiro-com"
 compatibility_date = "2026-06-11"
+workers_dev = true
+preview_urls = true
 
 [assets]
 directory = "./dist"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
+
+[[routes]]
+pattern = "mafaldaribeiro.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.mafaldaribeiro.com"
+custom_domain = true
