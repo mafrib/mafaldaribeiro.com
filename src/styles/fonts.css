@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Proposal DM Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('/fonts/dm-serif.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Proposal Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('/fonts/lora.ttf') format('truetype');
+}

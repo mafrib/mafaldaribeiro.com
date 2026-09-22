@@ -1,6 +1,7 @@
 ---
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
+import '../styles/fonts.css';
 interface Props {
   variant: 'literaria' | 'grafica' | 'delicada' | 'editorial';
   typography?: 'humanista' | 'classica';
@@ -38,14 +39,6 @@ const { variant, typography = 'humanista' } = Astro.props;
   @font-face {
     font-family: 'Proposal Source Sans'; font-style: normal; font-weight: 400; font-display: swap;
     src: url('https://fonts.gstatic.com/s/sourcesans3/v19/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8Ky461EN.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'Proposal Lora'; font-style: normal; font-weight: 400; font-display: swap;
-    src: url('https://fonts.gstatic.com/s/lora/v37/0QI6MX1D_JOuGQbT0gvTJPa787weuyJG.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'Proposal DM Serif'; font-style: normal; font-weight: 400; font-display: swap;
-    src: url('https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2K_c.ttf') format('truetype');
   }
   @font-face {
     font-family: 'Proposal Cormorant'; font-style: normal; font-weight: 400; font-display: swap;
@@ -105,11 +98,11 @@ const { variant, typography = 'humanista' } = Astro.props;
   .delicada p::before { content: ''; display: block; width: 2rem; height: 1px; background: #a55c95; margin: 0 auto 1.8rem; }
   .delicada .contacts { color: #8a4d83; }
 
-  .editorial { --ink: #302b31; --paper: #f8eef0; --accent: #b93649; }
+  .editorial { color: var(--ink); background: var(--paper); }
   .editorial.humanista header nav, .editorial.humanista main p { font-family: 'Proposal Source Sans', Arial, sans-serif; }
   .editorial.classica header nav, .editorial.classica main p { font-family: 'Proposal Lora', Georgia, serif; }
   .company-link { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  .editorial header { border-bottom: 1px solid #b58a95; justify-content: flex-end; }
+  .editorial header { border-bottom: 1px solid var(--line); justify-content: flex-end; }
   .editorial header nav { margin-left: auto; font-size: 1.25rem; }
   .editorial .home-link { color: var(--ink); font-family: 'Proposal DM Serif', Georgia, serif; font-size: 2.5rem; line-height: 1; min-width: 48px; min-height: 48px; display: flex; align-items: center; }
   .editorial .home-link span { color: var(--accent); }
@@ -123,11 +116,11 @@ const { variant, typography = 'humanista' } = Astro.props;
   }
   .editorial h1 { font-family: 'Proposal DM Serif', Georgia, serif; font-size: 8rem; line-height: 1.02; }
   .editorial h1 > span:last-child { margin-left: 3rem; }
-  .editorial .period { display: inline; color: var(--accent); }
-  .editorial p { margin: 0 0 0.8rem; padding-top: 1rem; border-top: 2px solid var(--accent); color: #65535e; font-size: 1.375rem; }
+  .editorial .period { display: inline; color: var(--detail, var(--accent)); }
+  .editorial p { margin: 0 0 0.8rem; padding-top: 1rem; border-top: 2px solid var(--secondary, var(--accent)); color: var(--muted); font-size: 1.375rem; }
   .editorial .employer { display: block; }
   .editorial a:hover { color: var(--accent); }
-  .editorial footer { color: #65535e; }
+  .editorial footer { color: var(--muted); }
   .editorial .contacts { color: var(--accent); }
   .editorial .contacts a { width: 48px; height: 48px; }
   .editorial .contacts svg { width: 26px; height: 26px; }

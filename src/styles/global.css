@@ -1,11 +1,3 @@
-@font-face {
-  font-family: 'Proposal DM Serif'; font-style: normal; font-weight: 400; font-display: swap;
-  src: url('https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2K_c.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Proposal Lora'; font-style: normal; font-weight: 400; font-display: swap;
-  src: url('https://fonts.gstatic.com/s/lora/v37/0QI6MX1D_JOuGQbT0gvTJPa787weuyJG.ttf') format('truetype');
-}
 :root { color-scheme: light; --paper: #f8eef0; --ink: #302b31; --muted: #65535e; --accent: #b93649; --line: #b58a95; font-family: 'Proposal Lora', Georgia, serif; color: var(--ink); background: var(--paper); }
 * { box-sizing: border-box; letter-spacing: 0; }
 body { margin: 0; min-height: 100svh; display: flex; flex-direction: column; padding-inline: max(2rem, calc((100% - 1120px) / 2)); }
@@ -21,7 +13,7 @@ h3 { font-size: 1.75rem; }
 p { line-height: 1.75; }
 .content-page { padding-block: 4rem; }
 .page-title { margin-bottom: 2rem; }
-.page-title h1::after { content: '.'; color: var(--accent); }
+.page-title h1::after { content: '.'; color: var(--detail, var(--accent)); }
 .ghost-content { font-size: 1.0625rem; line-height: 1.75; }
 .ghost-content p { max-width: 65ch; }
 .page-intro { color: var(--muted); margin: 0 0 2.5rem; }

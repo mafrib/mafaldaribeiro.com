@@ -124,7 +124,7 @@
           "href": "https://ccu-project.webflow.io/",
           "label": "Project website ↗"
         },
-        "images": [],
+        "images": [{ "src": "/content/images/previews/assistander.webp", "alt": "Assistander high-fidelity prototype: homepage screens", "width": 2308, "height": 1416 }],
         "video": null
       }
     ]
@@ -143,7 +143,29 @@
           "href": "https://edi2324.my.canva.site/",
           "label": "Project presentation ↗"
         },
-        "images": [],
+        "images": [
+          {"src":"/content/images/previews/bracelet-slide-1.webp","alt":"Emergency bracelet presentation: slide 1 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-2.webp","alt":"Emergency bracelet presentation: slide 2 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-3.webp","alt":"Emergency bracelet presentation: slide 3 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-4.webp","alt":"Emergency bracelet presentation: slide 4 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-5.webp","alt":"Emergency bracelet presentation: slide 5 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-6.webp","alt":"Emergency bracelet presentation: slide 6 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-7.webp","alt":"Emergency bracelet presentation: slide 7 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-8.webp","alt":"Emergency bracelet presentation: slide 8 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-9.webp","alt":"Emergency bracelet presentation: slide 9 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-10.webp","alt":"Emergency bracelet presentation: slide 10 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-11.webp","alt":"Emergency bracelet presentation: slide 11 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-12.webp","alt":"Emergency bracelet presentation: slide 12 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-13.webp","alt":"Emergency bracelet presentation: slide 13 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-14.webp","alt":"Emergency bracelet presentation: slide 14 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-15.webp","alt":"Emergency bracelet presentation: slide 15 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-16.webp","alt":"Emergency bracelet presentation: slide 16 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-17.webp","alt":"Emergency bracelet presentation: slide 17 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-18.webp","alt":"Emergency bracelet presentation: slide 18 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-19.webp","alt":"Emergency bracelet presentation: slide 19 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-20.webp","alt":"Emergency bracelet presentation: slide 20 of 21","width":1440,"height":810},
+          {"src":"/content/images/previews/bracelet-slide-21.webp","alt":"Emergency bracelet presentation: slide 21 of 21","width":1440,"height":810}
+        ],
         "video": null
       }
     ]
@@ -162,7 +184,7 @@
           "href": "https://www.figma.com/proto/z395NSfv7aM6jOhBVUXade/Criptomoedas?node-id=16-9",
           "label": "Figma prototype ↗"
         },
-        "images": [],
+        "images": [{ "src": "/content/images/previews/interface-prototype.webp", "alt": "Cryptocurrency interface prototype showing the wallet screen", "width": 360, "height": 640 }],
         "video": null
       }
     ]

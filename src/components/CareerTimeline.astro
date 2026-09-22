@@ -12,6 +12,15 @@ const courses: Record<string, string> = {
   '2020-09': 'https://tecnico.ulisboa.pt/en/education/courses/undergraduate-programmes/computer-science-and-engineering/',
 };
 // Dates and role titles follow the LinkedIn text supplied by Mafalda.
+const workLinks: Record<string, { label: string; anchor: string }[]> = {
+  '2023-09': [
+    { label: 'Multimedia Content Production', anchor: 'multimedia-content-production' },
+    { label: 'User Centered Design', anchor: 'course-1' },
+    { label: 'Interaction Design Studio', anchor: 'course-2' },
+  ],
+  '2021-02': [{ label: 'Selected visual work', anchor: 'neiist-work' }],
+  '2020-09': [{ label: 'Human-Computer Interaction', anchor: 'course-3' }],
+};
 const entries = [
   { name: 'Cloudflare', from: 'Nov 2025', to: 'Present', start: '2025-11', end: null, title: 'Technical Program Manager', note: 'Security team', current: true },
   { name: 'Cloudflare', from: 'Jun 2025', to: 'Nov 2025', start: '2025-06', end: '2025-11', title: 'Cybersecurity Technical Program Manager Intern' },
@@ -43,6 +52,10 @@ const entries = [
         {entry.roles && <dl class="roles">
           {entry.roles.map(role => <div><dt>{role.title}</dt><dd>{role.dates}</dd></div>)}
         </dl>}
+        {linked && workLinks[entry.start] && <div class="work-links">
+          {entry.education && <span class="work-label">Selected coursework</span>}
+          {workLinks[entry.start].map(work => <a href={`/portfolio/#${work.anchor}`}>{work.label} <span aria-hidden="true">&rarr;</span></a>)}
+        </div>}
       </div>
     </li>)}
   </ol>
@@ -89,7 +102,10 @@ const entries = [
   .grafica .current .position { color: var(--accent); }
   .grafica .roles { border-top: 1px solid #c5d2cb; padding-top: 0.5rem; }
   .linked .period, .linked dd { font-family: 'Proposal Lora', Georgia, serif; }
-  .linked a { text-decoration: underline; text-decoration-color: #b58a95; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+  .work-links { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; margin-top: 1.25rem; font-size: 0.9375rem; line-height: 1.6; }
+  .work-label { color: var(--muted); font-style: italic; }
+  .work-links a { color: var(--accent); }
+  .linked a { text-decoration: underline; text-decoration-color: var(--line); text-decoration-thickness: 1px; text-underline-offset: 5px; }
   .linked a:hover, .linked a:focus-visible { color: var(--accent); text-decoration-color: currentColor; }
   @media (max-width: 700px) {
     .career { padding-top: 2rem; }

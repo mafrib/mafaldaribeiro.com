@@ -1,10 +1,12 @@
 ---
 import HomeProposal from '../components/HomeProposal.astro';
+import SiteAppearance from '../components/SiteAppearance.astro';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-palette="coral">
   <head>
+    <SiteAppearance />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Mafalda Ribeiro, Technical Program Manager at Cloudflare." />
@@ -18,5 +20,5 @@ import HomeProposal from '../components/HomeProposal.astro';
 </html>
 
 <style is:global>
-  html, body { margin: 0; background: #f8eef0; }
+  html, body { margin: 0; background: var(--paper); }
 </style>

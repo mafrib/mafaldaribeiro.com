@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import SiteAppearance from '../components/SiteAppearance.astro';
 
 interface Props {
   title?: string;
@@ -16,8 +17,9 @@ const pageTitle = title ? `${title} · ${siteTitle}` : siteTitle;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-palette="coral">
   <head>
+    <SiteAppearance />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />

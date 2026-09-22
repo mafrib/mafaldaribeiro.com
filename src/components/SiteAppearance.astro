@@ -1,0 +1,21 @@
+---
+import '../styles/fonts.css';
+---
+<link rel="preload" href="/fonts/dm-serif.ttf" as="font" type="font/ttf" crossorigin />
+<link rel="preload" href="/fonts/lora.ttf" as="font" type="font/ttf" crossorigin />
+{import.meta.env.DEV && <script is:inline>
+  // Keep the chosen local preview palette while navigating between pages.
+  try {
+    const requested = new URLSearchParams(location.search).get('palette');
+    if (['warm', 'neutral', 'blue', 'coral'].includes(requested)) sessionStorage.setItem('palette', requested);
+    document.documentElement.dataset.palette = sessionStorage.getItem('palette') || 'coral';
+  } catch { document.documentElement.dataset.palette = 'coral'; }
+</script>}
+<style is:global>
+  :root { --paper: #f8eef0; --ink: #302b31; --muted: #65535e; --accent: #b93649; --line: #b58a95; }
+  :root[data-palette='warm'] { --paper: #f7f4ed; --ink: #302e29; --muted: #625c52; --accent: #77513b; --line: #aaa994; --secondary: #526451; }
+  :root[data-palette='neutral'] { --paper: #f5f5f0; --ink: #2d322e; --muted: #5b625c; --accent: #526451; --line: #b2afa3; --secondary: #775a43; }
+  :root[data-palette='blue'] { --paper: #f7f4ed; --ink: #3e3028; --muted: #69594c; --accent: #4263c7; --line: #bfb09e; --secondary: #4263c7; }
+  :root[data-palette='coral'] { --paper: #f7f4ed; --ink: #3e3028; --muted: #69594c; --accent: #aa503c; --line: #c6b6a5; --secondary: #eb8a73; --detail: #eb8a73; }
+  :root[data-palette='blue'] .career .year { color: var(--muted); }
+</style>

@@ -1,5 +1,5 @@
 ---
-const links = [{ href: '/about/', label: 'About' }, { href: '/photography/', label: 'Photography' }];
+const links = [{ href: '/about/', label: 'About' }, { href: '/portfolio/', label: 'Design' }, { href: '/photography/', label: 'Photography' }];
 ---
 <header class="site-header">
   <a class="home-link" href="/" aria-label="Mafalda Ribeiro home" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>m<span aria-hidden="true">.</span></a>
@@ -8,17 +8,21 @@ const links = [{ href: '/about/', label: 'About' }, { href: '/photography/', lab
   </nav>
 </header>
 <style>
-  .site-header { display: flex; align-items: center; gap: 1rem; padding-block: 2rem; border-bottom: 1px solid #b58a95; }
-  a { color: #302b31; text-decoration: none; }
-  a:hover, a[aria-current="page"]:not(.home-link) { color: #b93649; text-decoration: underline; text-underline-offset: 6px; }
-  a:focus-visible { outline: 2px solid #b93649; outline-offset: 5px; }
+  .site-header { display: flex; align-items: center; gap: 1rem; padding-block: 2rem; border-bottom: 1px solid var(--line); }
+  a { color: var(--ink); text-decoration: none; }
+  a:hover, a[aria-current="page"]:not(.home-link) { color: var(--accent); text-decoration: underline; text-underline-offset: 6px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
   .home-link { font-family: 'Proposal DM Serif', Georgia, serif; font-size: 2.5rem; line-height: 1; min-width: 48px; min-height: 48px; display: flex; align-items: center; }
-  .home-link span { color: #b93649; }
+  .home-link span { color: var(--detail, var(--accent)); }
   nav { display: flex; margin-left: auto; gap: 2rem; font-family: 'Proposal Lora', Georgia, serif; font-size: 1.25rem; }
   nav a { padding-block: 0.8rem; }
   @media (max-width: 700px) {
     .site-header { padding-block: 1.2rem; }
     .home-link { font-size: 2.25rem; }
-    nav { font-size: 1.125rem; gap: 1.25rem; }
+    nav { font-size: 1.125rem; gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
+  }
+  @media (max-width: 400px) {
+    .site-header { flex-wrap: wrap; gap: 0.25rem; }
+    nav { width: 100%; justify-content: space-between; margin-left: 0; gap: 0.5rem; }
   }
 </style>
