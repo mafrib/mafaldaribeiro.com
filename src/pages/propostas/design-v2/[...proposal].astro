@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DesignPortfolio from '../../../components/DesignPortfolio.astro';
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { proposal: 'capitulos' } }] : [];
+}
+---
+<BaseLayout title="Design & multimedia" noIndex>
+  <DesignPortfolio />
+</BaseLayout>

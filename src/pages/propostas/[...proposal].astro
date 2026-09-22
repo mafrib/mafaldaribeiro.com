@@ -1,0 +1,66 @@
+---
+import HomeProposal from '../../components/HomeProposal.astro';
+
+export function getStaticPaths() {
+  // Design studies are available locally and excluded from production builds.
+  return import.meta.env.DEV ? [
+    { params: { proposal: undefined }, props: { variant: null } },
+    { params: { proposal: 'editorial-classica' }, props: { variant: 'editorial' as const, typography: 'classica' as const } },
+    ...(['literaria', 'grafica', 'delicada', 'editorial'] as const).map((variant) => ({
+      params: { proposal: variant }, props: { variant },
+    })),
+  ] : [];
+}
+
+const { variant, typography } = Astro.props;
+const options = [
+  { slug: 'editorial', name: '04 A / Editorial — Humanista', note: 'Menu e função em Source Sans 3' },
+  { slug: 'editorial-classica', name: '04 B / Editorial — Clássica', note: 'Menu e função em Lora' },
+  { slug: 'literaria', name: '01 / Literária', note: 'Cormorant Garamond · Bordeaux' },
+  { slug: 'grafica', name: '02 / Gráfica', note: 'Fraunces · Verde e vermelhão' },
+  { slug: 'delicada', name: '03 / Delicada', note: 'Bodoni Moda · Ameixa' },
+];
+---
+<!doctype html>
+<html lang={variant ? 'en' : 'pt-PT'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{variant ? `${variant} | Mafalda Ribeiro` : 'Propostas | Mafalda Ribeiro'}</title>
+  </head>
+  <body>
+    {variant ? <HomeProposal variant={variant} typography={typography} /> : (
+      <main class="comparison">
+        <header><h1>Propostas.</h1><a href="/">Homepage atual</a></header>
+        <div class="options">
+          {options.map((option) => (
+            <section>
+              <div class="preview"><iframe src={`/propostas/${option.slug}/`} title={option.name} tabindex="-1" inert /></div>
+              <h2><a href={`/propostas/${option.slug}/`}>{option.name} <span aria-hidden="true">↗</span></a></h2>
+              <p>{option.note}</p>
+            </section>
+          ))}
+        </div>
+      </main>
+    )}
+  </body>
+</html>
+
+<style is:global>
+  html, body { margin: 0; }
+</style>
+<style>
+  .comparison { padding: 3rem 2rem; font-family: Arial, sans-serif; color: #272b29; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+  h1 { font-family: Georgia, serif; font-size: 2rem; font-weight: 400; margin: 0; }
+  a { color: inherit; text-underline-offset: 5px; }
+  .options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+  .preview { aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid #e0e1de; }
+  iframe { display: block; width: 300%; height: 300%; border: 0; transform: scale(0.333333); transform-origin: top left; pointer-events: none; }
+  h2 { font-size: 1rem; font-weight: 400; margin: 1.5rem 0 0.6rem; }
+  h2 a { display: flex; justify-content: space-between; padding-block: 0.5rem; }
+  p { font-size: 0.8rem; color: #5b625d; }
+  a:focus-visible { outline: 2px solid #43594b; outline-offset: 5px; }
+  @media (max-width: 900px) { .options { grid-template-columns: 1fr; } .comparison { padding: 2rem 1.5rem; } }
+</style>

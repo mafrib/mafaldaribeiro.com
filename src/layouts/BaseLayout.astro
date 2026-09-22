@@ -1,19 +1,18 @@
 ---
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  minimal?: boolean;
+  noIndex?: boolean;
 }
 
 const siteTitle = 'Mafalda Ribeiro';
-const { title, description = 'Portfolio and photography by Mafalda Ribeiro.' } = Astro.props;
+const { title, description = 'Mafalda Ribeiro, Technical Program Manager at Cloudflare.', minimal = false, noIndex = false } = Astro.props;
 const pageTitle = title ? `${title} · ${siteTitle}` : siteTitle;
-const nav = [
-  { href: '/portfolio/', label: 'Portfolio' },
-  { href: '/photography/', label: 'Photography' },
-  { href: '/about/', label: 'About' },
-];
 ---
 
 <!doctype html>
@@ -23,21 +22,15 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />
     <title>{pageTitle}</title>
   </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Mafalda Ribeiro home">Mafalda Ribeiro</a>
-      <nav class="site-nav" aria-label="Main navigation">
-        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
-      </nav>
-    </header>
+  <body class:list={{ 'minimal-home': minimal }}>
+    <SiteHeader />
     <main>
       <slot />
     </main>
-    <footer class="site-footer">
-      <span>© {new Date().getFullYear()} Mafalda Ribeiro</span>
-    </footer>
+    <SiteFooter />
   </body>
 </html>

@@ -1,34 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-
-const pages = (await getCollection('pages'))
-  .filter((page) => !page.data.draft)
-  .sort((a, b) => a.data.navOrder - b.data.navOrder);
-const featured = pages.filter((page) => ['portfolio', 'photography', 'about'].includes(page.data.slug));
+import HomeProposal from '../components/HomeProposal.astro';
 ---
 
-<BaseLayout description="Portfolio and photography by Mafalda Ribeiro.">
-  <section class="hero">
-    <p class="eyebrow">Portfolio & photography</p>
-    <h1>Mafalda Ribeiro</h1>
-    <p class="hero-copy">
-      Technical Program Manager at Cloudflare, with a background in computer
-      science and a soft spot for design, multimedia, and photography.
-    </p>
-    <div class="hero-actions">
-      <a class="button" href="/portfolio/">View portfolio</a>
-      <a class="button secondary" href="/photography/">View photography</a>
-    </div>
-  </section>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mafalda Ribeiro, Technical Program Manager at Cloudflare." />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={new URL('/', Astro.site).toString()} />
+    <title>Mafalda Ribeiro</title>
+  </head>
+  <body>
+    <HomeProposal variant="editorial" typography="classica" />
+  </body>
+</html>
 
-  <section class="page-grid" aria-label="Site sections">
-    {featured.map((page) => (
-      <a class="page-card" href={`/${page.data.slug}/`}>
-        <span>{page.data.kind}</span>
-        <h2>{page.data.title}</h2>
-        {page.data.excerpt && <p>{page.data.excerpt}</p>}
-      </a>
-    ))}
-  </section>
-</BaseLayout>
+<style is:global>
+  html, body { margin: 0; background: #f8eef0; }
+</style>

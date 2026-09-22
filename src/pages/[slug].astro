@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CareerTimeline from '../components/CareerTimeline.astro';
+import DesignPortfolio from '../components/DesignPortfolio.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => !data.draft);
@@ -15,13 +17,28 @@ const { Content } = await render(page);
 ---
 
 <BaseLayout title={page.data.title} description={page.data.excerpt || `Mafalda Ribeiro — ${page.data.title}`}>
-  <article class="content-page">
+  {page.data.slug === 'portfolio' ? <DesignPortfolio /> : <article class={`content-page content-page-${page.data.slug}`}>
     <header class="page-title">
-      <p class="eyebrow">{page.data.kind}</p>
       <h1>{page.data.title}</h1>
+      {page.data.slug === 'about' && <Content />}
     </header>
-    <div class="ghost-content">
+    {page.data.slug === 'about' ? <>
+      <CareerTimeline variant="editorial" linked />
+      <aside class="archive-note"><a href="/portfolio/">Design &amp; multimedia <span aria-hidden="true">↗</span></a></aside>
+    </> : <div class="ghost-content">
       <Content />
-    </div>
-  </article>
+    </div>}
+  </article>}
 </BaseLayout>
+<style>
+  .content-page-about { padding-block: 2.5rem 4rem; }
+  .content-page-about .page-title { margin-bottom: 3rem; }
+  .content-page-about :global(.about-intro) { font-size: 1.125rem; color: var(--muted); margin-top: 1.5rem; }
+  .archive-note { margin-top: 2.5rem; padding-block: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9375rem; }
+  :global(body:has(.content-page-about) .site-footer) { font-family: 'Proposal Lora', Georgia, serif; }
+  @media (max-width: 700px) {
+    .content-page-about { padding-block: 2rem 3rem; }
+    .content-page-about .page-title { margin-bottom: 2rem; }
+    .content-page-about :global(.about-intro) { font-size: 1.0625rem; }
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CareerTimeline from '../../../components/CareerTimeline.astro';
+
+export function getStaticPaths() {
+  // Local design studies are excluded from production builds.
+  return import.meta.env.DEV
+    ? ['editorial', 'grafica', 'editorial-links'].map(variant => ({ params: { variant } }))
+    : [];
+}
+const variant = Astro.params.variant === 'grafica' ? 'grafica' : 'editorial';
+const linked = Astro.params.variant === 'editorial-links';
+---
+<BaseLayout title={`About / ${variant}`} noIndex>
+  <nav class:list={['study-nav', { 'serif-nav': linked }]} aria-label="About proposals">
+    <a href="/propostas/about/editorial/" aria-current={variant === 'editorial' && !linked ? 'page' : undefined}>01 / Editorial</a>
+    <a href="/propostas/about/grafica/" aria-current={variant === 'grafica' ? 'page' : undefined}>02 / Gráfica</a>
+    <a href="/propostas/about/editorial-links/" aria-current={linked ? 'page' : undefined}>03 / Editorial + links</a>
+  </nav>
+  <article class:list={['study', { 'linked-study': linked }]}>
+    <header class="page-title">
+      <h1>About me</h1>
+      <p class="intro">I'm Mafalda. Outside work, I enjoy <a href="/photography/">photography</a>.</p>
+    </header>
+    <CareerTimeline variant={variant} linked={linked} />
+    <aside class="archive-note"><a href="/portfolio/">Design &amp; multimedia <span aria-hidden="true">↗</span></a></aside>
+  </article>
+</BaseLayout>
+<style>
+  .study-nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; padding-top: 1.5rem; font-family: Arial, sans-serif; font-size: 0.875rem; }
+  .study-nav a { padding-block: 0.5rem; color: var(--muted); text-decoration: none; }
+  .study-nav a[aria-current='page'] { color: var(--accent); text-decoration: underline; }
+  .serif-nav { font-family: 'Proposal Lora', Georgia, serif; }
+  :global(body:has(.linked-study) .site-footer) { font-family: 'Proposal Lora', Georgia, serif; }
+  .study { padding-block: 2.5rem 4rem; }
+  .page-title { margin-bottom: 3rem; }
+  .intro { font-size: 1.125rem; color: var(--muted); margin-top: 1.5rem; }
+  .archive-note { margin-top: 2.5rem; padding-block: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9375rem; }
+  @media (max-width: 700px) {
+    .study { padding-block: 2rem 3rem; }
+    .page-title { margin-bottom: 2rem; }
+    .intro { font-size: 1.0625rem; }
+  }
+</style>

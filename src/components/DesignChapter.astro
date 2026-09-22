@@ -1,0 +1,91 @@
+---
+import groups from '../data/design-studies.json';
+interface Props { group: (typeof groups)[number]; }
+const { group } = Astro.props;
+const years = group.year ? [group.year] : [...new Set(group.projects.map(project => project.year))].sort((a, b) => b.localeCompare(a));
+---
+<div class="chapter-works">
+  {years.map(year => <div class="year-group">
+    {!group.year && <h3 class="year">{year || 'Other work'}</h3>}
+    <div class="pieces">
+      {group.projects.filter(project => project.year === year).map(project => <article data-gallery={project.id} data-images={JSON.stringify(project.images)} data-title={project.title} class:list={['piece', { wide: project.id === 'visual-identity', linked: !!project.link }]}>
+        {project.images[0] && <div class="gallery-media">
+        <a class="artwork" data-preview="0" href={project.images[0].src} aria-label={`Preview ${project.title}`}><img {...project.images[0]} loading="lazy" /></a>
+        </div>}
+        {project.video && <div class="artwork"><video {...project.video} controls playsinline preload="none" aria-label={project.title}></video></div>}
+        <div class="caption-heading">
+        <h3>{project.title}</h3>
+        {project.images.length > 1 && <nav class="gallery-controls" aria-label={`${project.title} gallery`}>
+          <button type="button" data-gallery-previous aria-label={`Previous image in ${project.title}`} title="Previous image">&#8592;</button>
+          <span data-gallery-counter aria-live="polite">1 / {project.images.length}</span>
+          <button type="button" data-gallery-next aria-label={`Next image in ${project.title}`} title="Next image">&#8594;</button>
+        </nav>}
+        </div>
+        {project.description && <p>{project.description}</p>}
+        {project.link && <a class="project-link" href={project.link.href}>{project.link.label}</a>}
+      </article>)}
+    </div>
+  </div>)}
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gallery]').forEach(gallery => {
+    const images: {src: string; alt: string; width: number; height: number}[] = JSON.parse(gallery.dataset.images || '[]');
+    const link = gallery.querySelector<HTMLAnchorElement>('[data-preview]');
+    const image = link?.querySelector('img');
+    const counter = gallery.querySelector('[data-gallery-counter]');
+    if (!link || !image || images.length < 2) return;
+    let index = 0;
+    function move(direction: number) {
+      index = (index + direction + images.length) % images.length;
+      const next = images[index];
+      image!.src = next.src;
+      image!.alt = next.alt;
+      image!.width = next.width;
+      image!.height = next.height;
+      link!.href = next.src;
+      link!.dataset.preview = String(index);
+      counter!.textContent = `${index + 1} / ${images.length}`;
+    }
+    gallery.querySelector('[data-gallery-previous]')?.addEventListener('click', () => move(-1));
+    gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => move(1));
+  });
+</script>
+<style>
+  .chapter-works, .year-group, .piece { min-width: 0; }
+  .piece { container-type: inline-size; }
+  .year-group + .year-group { margin-top: 3rem; }
+  .year { margin: 0 0 1.5rem; font: italic 1.25rem 'Proposal Lora', Georgia, serif; color: var(--muted); }
+  .pieces { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem 2rem; align-items: start; }
+  .wide, .linked { grid-column: 1 / -1; }
+  .artwork { display: flex; justify-content: center; align-items: flex-end; height: 27rem; }
+  .wide .artwork { height: auto; aspect-ratio: 2000 / 1320; max-height: 32rem; align-items: center; justify-content: center; }
+  .artwork img, .artwork video { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+  .wide .artwork img { width: 100%; height: 100%; object-fit: contain; }
+  .caption-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.5rem; min-height: 44px; margin-top: 0.375rem; }
+  .caption-heading h3 { font-size: 1.1875rem; line-height: 1.35; margin: 0; }
+  p { font-size: 0.9375rem; line-height: 1.6; color: var(--muted); margin: 0.125rem 0 0; max-width: 42rem; }
+  .linked .caption-heading { margin-top: 0; }
+  .linked h3 { font-size: 1.75rem; }
+  .project-link { display: inline-block; padding-block: 0.75rem; }
+  .gallery-controls { display: flex; justify-content: center; align-items: center; height: 44px; gap: 0; }
+  .gallery-controls span { min-width: 2.25rem; text-align: center; font-size: 0.8125rem; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .gallery-controls button { width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--muted); font-size: 1.125rem; cursor: pointer; }
+  .gallery-controls button:hover { color: var(--accent); }
+  .gallery-controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .artwork { cursor: zoom-in; }
+  @container (max-width: 300px) {
+    .caption-heading h3 { font-size: 1rem; }
+    .gallery-controls span { min-width: 1.75rem; }
+  }
+  @media (max-width: 700px) {
+    .pieces { gap: 2.5rem 1rem; }
+    .artwork { height: 21rem; }
+  }
+  @media (max-width: 480px) {
+    .pieces { grid-template-columns: minmax(0, 1fr); }
+    .artwork { height: auto; max-height: none; }
+    [data-images]:has(.gallery-controls):not(.wide) .artwork { height: 26rem; align-items: flex-end; justify-content: center; }
+    .artwork img, .artwork video { max-height: 30rem; }
+    .piece:has(.gallery-controls) .artwork img { max-height: 100%; }
+  }
+</style>

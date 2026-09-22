@@ -1,0 +1,389 @@
+[
+  {
+    "id": "multimedia-content-production",
+    "name": "Multimedia Content Production",
+    "year": "2023/24",
+    "projects": [
+      {
+        "id": "visual-identity",
+        "title": "Visual identity",
+        "year": "2023/24",
+        "description": "Business cards, stationery and a brand mockup.",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/mockup.webp",
+            "alt": "Visual identity — Multimedia Content Production · 2023/24 (1)",
+            "width": 2000,
+            "height": 1320
+          },
+          {
+            "src": "/content/images/2024/10/business-card1.webp",
+            "alt": "Visual identity — Multimedia Content Production · 2023/24 (2)",
+            "width": 1050,
+            "height": 600
+          },
+          {
+            "src": "/content/images/2024/10/business-card2.webp",
+            "alt": "Visual identity — Multimedia Content Production · 2023/24 (3)",
+            "width": 1050,
+            "height": 600
+          },
+          {
+            "src": "/content/images/2024/10/envelope1.webp",
+            "alt": "Visual identity — Multimedia Content Production · 2023/24 (4)",
+            "width": 2000,
+            "height": 1000
+          },
+          {
+            "src": "/content/images/2024/10/stationary-page.webp",
+            "alt": "Visual identity — Multimedia Content Production · 2023/24 (5)",
+            "width": 1414,
+            "height": 2000
+          }
+        ],
+        "video": null
+      },
+      {
+        "id": "print-and-pixel",
+        "title": "Movie poster",
+        "year": "2023/24",
+        "description": "",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/forrestgump-retry-compressed.webp",
+            "alt": "Forrest Gump movie poster exercise",
+            "width": 1945,
+            "height": 2880
+          }
+        ],
+        "video": null
+      },
+      {
+        "id": "advertising-poster",
+        "title": "Advertising poster",
+        "year": "2023/24",
+        "description": "",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/re-submission.webp",
+            "alt": "Chips Ahoy advertising poster exercise",
+            "width": 600,
+            "height": 900
+          }
+        ],
+        "video": null
+      },
+      {
+        "id": "newspaper",
+        "title": "Newspaper",
+        "year": "2023/24",
+        "description": "",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/improved-1.webp",
+            "alt": "The Tuga newspaper front-page layout exercise",
+            "width": 595,
+            "height": 842
+          }
+        ],
+        "video": null
+      },
+      {
+        "id": "pixel-art",
+        "title": "Pixel art",
+        "year": "2023/24",
+        "description": "",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/perry-final.gif",
+            "alt": "Pixel-art animation exercise",
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "course-1",
+    "name": "User Centered Design",
+    "year": "2023/24",
+    "projects": [
+      {
+        "id": "assistander",
+        "title": "Assistander",
+        "year": "2023/24",
+        "description": "",
+        "link": {
+          "href": "https://ccu-project.webflow.io/",
+          "label": "Project website ↗"
+        },
+        "images": [],
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "course-2",
+    "name": "Interaction Design Studio",
+    "year": "2023/24",
+    "projects": [
+      {
+        "id": "emergency-bracelet",
+        "title": "Emergency bracelet",
+        "year": "2023/24",
+        "description": "Co-designing an emergency bracelet for hearing-impaired people.",
+        "link": {
+          "href": "https://edi2324.my.canva.site/",
+          "label": "Project presentation ↗"
+        },
+        "images": [],
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "course-3",
+    "name": "Human-Computer Interaction",
+    "year": "2021/22",
+    "projects": [
+      {
+        "id": "interface-prototype",
+        "title": "Interface prototype",
+        "year": "2021/22",
+        "description": "",
+        "link": {
+          "href": "https://www.figma.com/proto/z395NSfv7aM6jOhBVUXade/Criptomoedas?node-id=16-9",
+          "label": "Figma prototype ↗"
+        },
+        "images": [],
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "neiist-work",
+    "name": "NEIIST",
+    "year": "",
+    "projects": [
+      {
+        "id": "stop-motion",
+        "title": "Merchandise teaser",
+        "year": "2023/24",
+        "description": "A stop-motion video for the Computer Science and Engineering merchandise sale.",
+        "link": null,
+        "images": [],
+        "video": {
+          "src": "/content/media/2024/12/is-it.mp4",
+          "poster": "/content/media/2024/12/is-it_thumb.jpg",
+          "width": 1080,
+          "height": 1920
+        }
+      },
+      {
+        "id": "story-templates",
+        "title": "Instagram Stories",
+        "year": "2022/23",
+        "description": "Templates for weekly themed posts.",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/53002641804_792e5fb7ea.webp",
+            "alt": "Instagram Stories — NEIIST · 2022/23 (1)",
+            "width": 1080,
+            "height": 1920
+          },
+          {
+            "src": "/content/images/2024/10/53002838642_12997246ec.webp",
+            "alt": "Instagram Stories — NEIIST · 2022/23 (2)",
+            "width": 1080,
+            "height": 1920
+          },
+          {
+            "src": "/content/images/2024/10/53003808450_ba7c2f2979.webp",
+            "alt": "Instagram Stories — NEIIST · 2022/23 (3)",
+            "width": 1080,
+            "height": 1920
+          }
+        ],
+        "video": null
+      },
+      {
+        "id": "merchandise-2023",
+        "title": "Merchandise campaign",
+        "year": "2022/23",
+        "description": "Visual materials for the Computer Science and Engineering merchandise sale.",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/53000036587_5b378e74a4.webp",
+            "alt": "Merchandise campaign — NEIIST · 2022/23 (1)",
+            "width": 1414,
+            "height": 1999
+          },
+          {
+            "src": "/content/images/2024/10/53001109383_a18e716ba6.webp",
+            "alt": "Merchandise campaign — NEIIST · 2022/23 (2)",
+            "width": 1080,
+            "height": 1920
+          },
+          {
+            "src": "/content/images/2024/10/53001016835_06a53b6068.webp",
+            "alt": "Merchandise campaign — NEIIST · 2022/23 (3)",
+            "width": 1080,
+            "height": 1920
+          },
+          {
+            "src": "/content/images/2024/10/53000635296_caca43793c.webp",
+            "alt": "Merchandise campaign — NEIIST · 2022/23 (4)",
+            "width": 1414,
+            "height": 2000
+          },
+          {
+            "src": "/content/images/2024/10/53000036852_c15fa3b3ec.webp",
+            "alt": "Merchandise campaign — NEIIST · 2022/23 (5)",
+            "width": 1080,
+            "height": 1920
+          }
+        ],
+        "video": null
+      },
+      {
+        "id": "linux-install-party", "title": "Linux Install Party", "year": "2022/23", "description": "", "link": null, "video": null,
+        "images": [{"src": "/content/images/2024/10/53000786839_33e96bbd46.webp", "alt": "Linux Install Party event poster", "width": 1414, "height": 2000}]
+      },
+      {
+        "id": "master-your-thesis", "title": "Master Your Thesis", "year": "2022/23", "description": "", "link": null, "video": null,
+        "images": [{"src": "/content/images/2024/10/53001016960_0fba26a342.webp", "alt": "Master Your Thesis event poster", "width": 1414, "height": 2000}]
+      },
+      {
+        "id": "holiday-greetings", "title": "Holiday greetings", "year": "2022/23", "description": "", "link": null, "video": null,
+        "images": [{"src": "/content/images/2024/10/53000635301_02c71d4978.webp", "alt": "NEIIST holiday greetings illustration", "width": 2000, "height": 2000}]
+      },
+      {
+        "id": "neiist-room", "title": "NEIIST room", "year": "2022/23", "description": "", "link": null, "video": null,
+        "images": [
+          {"src": "/content/images/2024/10/53001109343_acab1c5b01.webp", "alt": "NEIIST room announcement at Alameda campus", "width": 2000, "height": 2000},
+          {"src": "/content/images/2024/10/53000036607_fc575a42f2.webp", "alt": "Directions to the NEIIST room", "width": 2000, "height": 2000}
+        ]
+      },
+      {
+        "id": "team-2023", "title": "Board announcements", "year": "2022/23", "description": "", "link": null, "video": null,
+        "images": [
+          {"src": "/content/images/2024/10/53000036912_9bea309f2f.webp", "alt": "NEIIST board introduction, 2022/23", "width": 2000, "height": 2000},
+          {"src": "/content/images/2024/10/53000635306_de9c11746c.webp", "alt": "NEIIST general assembly board introduction, 2022/23", "width": 2000, "height": 2000},
+          {"src": "/content/images/2024/10/53001109543_dd3211e9b1.webp", "alt": "NEIIST supervisory board introduction, 2022/23", "width": 2000, "height": 2000}
+        ]
+      },
+      {
+        "id": "team-2022", "title": "Board announcements", "year": "2021/22", "description": "", "link": null, "video": null,
+        "images": [
+          {"src": "/content/images/2024/10/53001109518_8d4ab582e3.webp", "alt": "NEIIST Lista A board introduction, 2021/22", "width": 1080, "height": 1080},
+          {"src": "/content/images/2024/10/53000635226_de9e655230.webp", "alt": "NEIIST Lista A general assembly and supervisory boards, 2021/22", "width": 1080, "height": 1080}
+        ]
+      },
+      {
+        "id": "welcome-eic", "title": "Welcome to EIC", "year": "2022/23", "publishedAt": "2022-09-11", "description": "", "link": null, "video": null,
+        "images": [{"src": "/content/images/2024/10/53001069665_0c7f4cf6c4.webp", "alt": "Welcome to EIC illustration featuring the Tecnico tower", "width": 2000, "height": 2000}]
+      },
+      {
+        "id": "summer-greetings", "title": "Summer greetings", "year": "2021/22", "publishedAt": "2022-08-01", "description": "", "link": null, "video": null,
+        "images": [{"src": "/content/images/2024/10/53001109593_c1e46899ab.webp", "alt": "NEIIST summer holidays illustration", "width": 2000, "height": 2000}]
+      },
+      {
+        "id": "neiist-anniversary", "title": "18th anniversary", "year": "2021/22", "publishedAt": "2022-05-18", "description": "", "link": null, "video": null,
+        "images": [{"src": "/content/images/2024/10/53000786889_d6bfe2c18f.webp", "alt": "NEIIST 18th anniversary and new visual identity announcement", "width": 2000, "height": 2000}]
+      },
+      {
+        "id": "c-workshop", "title": "C workshop", "year": "2021/22", "publishedAt": "2022-04-05", "description": "", "link": null, "video": null,
+        "images": [{"src": "/content/images/2024/10/53001016610_5ebb8d4fdb.webp", "alt": "C programming workshop poster for Alameda and Taguspark", "width": 1414, "height": 2000}]
+      },
+      {
+        "id": "meic",
+        "title": "Quase Tudo Sobre MEIC",
+        "year": "2021/22",
+        "description": "Visual materials for the event.",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/53001016950_d6efc21fd0-1.webp",
+            "alt": "Quase Tudo Sobre MEIC online event announcement for April 19 to 21",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "src": "/content/images/2024/10/53001016900_9be6da6107-1.webp",
+            "alt": "Quase Tudo Sobre MEIC — NEIIST · 2021/22 (1)",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "src": "/content/images/2024/10/53001109433_2c149a8e2c-1.webp",
+            "alt": "Quase Tudo Sobre MEIC — NEIIST · 2021/22 (2)",
+            "width": 1440,
+            "height": 1440
+          },
+          {
+            "src": "/content/images/2024/10/53000635151_6b4f69446e-1.webp",
+            "alt": "Quase Tudo Sobre MEIC — NEIIST · 2021/22 (3)",
+            "width": 1440,
+            "height": 1440
+          }
+        ],
+        "video": null
+      },
+      {
+        "id": "merchandise-2022",
+        "title": "Merchandise campaign",
+        "year": "2021/22",
+        "description": "Visual materials for the Computer Science and Engineering merchandise sale.",
+        "link": null,
+        "images": [
+          {
+            "src": "/content/images/2024/10/sweats-2122.webp",
+            "alt": "Merchandise campaign — NEIIST · 2021/22 (1)",
+            "width": 1414,
+            "height": 2000
+          },
+          {
+            "src": "/content/images/2024/10/sweats-2122-giveaway.webp",
+            "alt": "Merchandise campaign — NEIIST · 2021/22 (2)",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "src": "/content/images/2024/10/53000036552_925cb11b7b.webp",
+            "alt": "Merchandise campaign — NEIIST · 2021/22 (3)",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "src": "/content/images/2024/10/53001109248_ed7f97b171.webp",
+            "alt": "Merchandise campaign — NEIIST · 2021/22 (4)",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "src": "/content/images/2024/10/53001109188_082eb4d80c.webp",
+            "alt": "Merchandise campaign — NEIIST · 2021/22 (5)",
+            "width": 2000,
+            "height": 2000
+          },
+          {
+            "src": "/content/images/2024/10/sweats-2122_2.webp",
+            "alt": "Merchandise campaign — NEIIST · 2021/22 (6)",
+            "width": 1414,
+            "height": 2000
+          }
+        ],
+        "video": null
+      }
+    ]
+  }
+]

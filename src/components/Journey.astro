@@ -1,0 +1,96 @@
+---
+const stops = [
+  { id: 'tecnico', name: 'Técnico', date: 'Oct 2020 - Oct 2025', description: "BSc + MSc in Computer Science and Engineering", context: 'Instituto Superior Técnico' },
+  { id: 'neiist', name: 'NEIIST', date: 'During university', description: 'Computer Science Students Group', context: 'Design and multimedia work' },
+  { id: 'dsi', name: 'DSI', date: 'During university', description: 'IT Services at Instituto Superior Técnico' },
+  { id: 'cloudflare', name: 'Cloudflare', date: 'Now', description: 'Technical Program Manager' },
+];
+---
+<section class="journey-section" aria-label="Career and education">
+  <ol class="journey" role="list">
+    {stops.map((stop, index) => <li class="stop">
+      <span class="marker" aria-hidden="true"></span>
+      {index < stops.length - 1 && <svg class="road" viewBox="0 0 80 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d={index % 2 === 0 ? 'M40 0 C100 35 -20 65 40 100' : 'M40 0 C-20 35 100 65 40 100'} />
+      </svg>}
+      <div class="stop-content">
+        <p class="stop-date">{stop.date}</p>
+        <h2>{stop.name}</h2>
+        <p class="description">{stop.description}</p>
+        {stop.context && <p class="context">{stop.context}</p>}
+        {stop.id === 'neiist' && <a class="archive-link" href="/portfolio/">University archive <span aria-hidden="true">↗</span></a>}
+      </div>
+    </li>)}
+  </ol>
+</section>
+<style>
+  .journey {
+    max-width: 56rem;
+    margin: 1rem auto 0;
+    padding: 0;
+    list-style: none;
+  }
+  .stop {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr);
+    column-gap: 1.5rem;
+    min-height: 180px;
+  }
+  .stop-content {
+    grid-column: 1;
+    padding-bottom: 3rem;
+    text-align: right;
+  }
+  .stop:nth-child(even) .stop-content {
+    grid-column: 3;
+    text-align: left;
+  }
+  .stop:last-child { min-height: 0; }
+  .stop:last-child .stop-content { padding-bottom: 0; }
+  .stop-date {
+    margin: 0 0 0.5rem;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .stop h2 { margin: 0 0 0.75rem; font-size: 2rem; }
+  .description { margin: 0; line-height: 1.6; }
+  .context { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.9375rem; }
+  .archive-link { display: inline-block; margin-top: 0.75rem; font-size: 0.9375rem; }
+  .marker {
+    position: absolute;
+    top: 16px;
+    left: calc(50% - 7px);
+    z-index: 1;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    background: var(--paper);
+  }
+  .stop:last-child .marker { background: var(--accent); }
+  .road {
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 23px;
+    width: 80px;
+    height: 100%;
+    pointer-events: none;
+  }
+  .road path {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+  }
+  @media (max-width: 700px) {
+    .journey { margin-top: 0.5rem; }
+    .stop { grid-template-columns: 40px minmax(0, 1fr); column-gap: 1rem; min-height: 165px; }
+    .stop .stop-content, .stop:nth-child(even) .stop-content { grid-column: 2; text-align: left; }
+    .stop h2 { font-size: 1.75rem; }
+    .marker { left: 13px; }
+    .road { left: 0; width: 40px; }
+  }
+</style>
