@@ -52,6 +52,9 @@ const entries = [
         {entry.roles && <dl class="roles">
           {entry.roles.map(role => <div><dt>{role.title}</dt><dd>{role.dates}</dd></div>)}
         </dl>}
+        {linked && entry.start === '2023-09' && <div class="work-links">
+          <a href="/portfolio/#crypto-books">Master's thesis: Crypto-Books <span aria-hidden="true">&rarr;</span></a>
+        </div>}
         {linked && workLinks[entry.start] && <div class="work-links">
           {entry.education && <span class="work-label">Selected coursework</span>}
           {workLinks[entry.start].map(work => <a href={`/portfolio/#${work.anchor}`}>{work.label} <span aria-hidden="true">&rarr;</span></a>)}

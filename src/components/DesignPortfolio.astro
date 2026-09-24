@@ -6,11 +6,29 @@ import groups from '../data/design-studies.json';
   <article class="design-portfolio">
     <header class="intro">
       <h1>Design &amp; multimedia</h1>
-      <p>A few projects I made while exploring an interest in design, through coursework and <a href="https://neiist.tecnico.ulisboa.pt/">NEIIST</a>.</p>
+      <p>My master's thesis, selected design coursework and visual work for <a href="https://neiist.tecnico.ulisboa.pt/">NEIIST</a>.</p>
     </header>
     <div class="body-layout">
-      <nav class="chapter-index" aria-label="Courses and NEIIST">{groups.map((group, index) => <a href={`#${group.id}`}><span>0{index + 1}</span>{group.name}</a>)}</nav>
-      <div class="chapters">{groups.map(group => <section class="chapter" id={group.id}>
+      <nav class="chapter-index" aria-label="Projects, courses and NEIIST">
+        <a href="#crypto-books"><span>01</span>Master's thesis</a>
+        {groups.map((group, index) => <a href={`#${group.id}`}><span>{String(index + 2).padStart(2, '0')}</span>{group.name}</a>)}
+      </nav>
+      <div class="chapters">
+        <section class="chapter thesis" id="crypto-books" aria-labelledby="crypto-books-title">
+          <header class="chapter-heading">
+            <h2 id="crypto-books-title">Crypto-Books</h2>
+            <p>Master's thesis · 2025</p>
+          </header>
+          <a class="thesis-preview" href="https://crypto-books.mafaldaribeiro.pt/" target="_blank" rel="noopener noreferrer" aria-label="Open Crypto-Books interactive project (opens in a new tab)">
+            <img src="/content/images/previews/crypto-books.webp" width="1920" height="1333" alt="Crypto-Books dashboard showing a map of authors, relationships between royal libraries, literary categories and a catalogue of books." />
+          </a>
+          <div class="thesis-description">
+            <p>I designed and developed an interactive tool for exploring the book collections of Portugal's Avis royal dynasty, combining information visualization, iterative prototyping and user testing.</p>
+            <p>Developed as my master's thesis at <a href="https://tecnico.ulisboa.pt/en/">Instituto Superior Técnico</a>, in collaboration with the <a href="https://www.chul.letras.ulisboa.pt/">Centre for History</a> at the University of Lisbon's <a href="https://www.letras.ulisboa.pt/">School of Arts and Humanities (FLUL)</a>.</p>
+            <a class="project-link" href="https://crypto-books.mafaldaribeiro.pt/" target="_blank" rel="noopener noreferrer" aria-label="Open interactive project (opens in a new tab)">Open interactive project <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+        {groups.map(group => <section class="chapter" id={group.id}>
         <header class="chapter-heading"><h2>{group.name}</h2>{group.year && <p>{group.year}</p>}</header>
         <DesignChapter group={group} />
       </section>)}</div>
@@ -31,6 +49,11 @@ import groups from '../data/design-studies.json';
   .chapter-heading { margin-bottom: 2rem; }
   h2 { font-size: 2rem; margin: 0; }
   .chapter-heading p { color: var(--muted); margin: 0.75rem 0 0; font-size: 1.125rem; }
+  .thesis-preview { display: block; }
+  .thesis-preview img { display: block; width: 100%; height: auto; }
+  .thesis-description { margin-top: 1.5rem; max-width: 46rem; }
+  .thesis-description p { font-size: 1rem; line-height: 1.75; margin: 0 0 1rem; }
+  .thesis-description p + p { color: var(--muted); }
   @media (max-width: 1000px) {
     .body-layout { grid-template-columns: 11rem minmax(0, 1fr); gap: 1.75rem; }
   }
