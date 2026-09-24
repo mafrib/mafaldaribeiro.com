@@ -1,0 +1,75 @@
+<dialog class="photo-preview" aria-label="Photograph preview">
+  <div class="photo-shell">
+    <header><button type="button" data-photo-close aria-label="Close preview" title="Close preview">&#215;</button></header>
+    <div class="photo-stage"><img alt="" /></div>
+    <footer>
+      <button type="button" data-photo-previous aria-label="Previous photograph" title="Previous photograph">&#8592;</button>
+      <p data-photo-counter aria-live="polite" aria-atomic="true"></p>
+      <button type="button" data-photo-next aria-label="Next photograph" title="Next photograph">&#8594;</button>
+    </footer>
+  </div>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.photo-preview');
+  if (dialog) {
+    const photos = Array.from(document.querySelectorAll<HTMLImageElement>('.content-page-photography .ghost-content img'));
+    const image = dialog.querySelector<HTMLImageElement>('.photo-stage img')!;
+    const counter = dialog.querySelector<HTMLElement>('[data-photo-counter]')!;
+    const previous = dialog.querySelector<HTMLButtonElement>('[data-photo-previous]')!;
+    const next = dialog.querySelector<HTMLButtonElement>('[data-photo-next]')!;
+    let index = 0;
+    let opener: HTMLButtonElement | null = null;
+    function show(position: number) {
+      if (!photos.length) return;
+      index = (position + photos.length) % photos.length;
+      image.src = photos[index].currentSrc || photos[index].src;
+      image.alt = photos[index].alt || `Photograph ${index + 1} of ${photos.length}`;
+      counter.textContent = `${index + 1} / ${photos.length}`;
+      previous.hidden = next.hidden = photos.length < 2;
+    }
+    photos.forEach((photo, position) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'photo-opener';
+      button.setAttribute('aria-label', `Enlarge photograph ${position + 1}`);
+      button.setAttribute('aria-haspopup', 'dialog');
+      photo.before(button);
+      button.append(photo);
+      button.addEventListener('click', () => {
+        opener = button;
+        show(position);
+        dialog.showModal();
+      });
+    });
+    previous.addEventListener('click', () => show(index - 1));
+    next.addEventListener('click', () => show(index + 1));
+    dialog.querySelector('[data-photo-close]')!.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(index + (event.key === 'ArrowLeft' ? -1 : 1));
+      }
+    });
+    dialog.addEventListener('close', () => {
+      image.removeAttribute('src');
+      opener?.focus({ preventScroll: true });
+    });
+  }
+</script>
+<style>
+  :global(.content-page-photography .photo-opener) { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+  :global(html:has(.photo-preview[open])) { overflow: hidden; }
+  .photo-preview { padding: 0; border: 0; background: transparent; color: #faf7f8; width: min(86rem, calc(100% - 2rem)); max-width: none; height: calc(100dvh - 2rem); max-height: none; }
+  .photo-preview::backdrop { background: rgb(20 18 20 / 97%); }
+  .photo-shell { display: grid; grid-template-rows: 52px minmax(0, 1fr) 60px; height: 100%; }
+  header { display: flex; justify-content: flex-end; align-items: center; }
+  footer { display: flex; justify-content: center; align-items: center; gap: 1rem; }
+  footer p { min-width: 5rem; margin: 0; text-align: center; font-variant-numeric: tabular-nums; }
+  button { flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 0; color: inherit; background: transparent; cursor: pointer; font-size: 1.75rem; }
+  button:hover { background: rgb(255 255 255 / 12%); }
+  button:focus-visible { outline: 2px solid var(--detail, var(--accent)); outline-offset: 2px; }
+  .photo-stage { min-height: 0; padding: 0.5rem; }
+  .photo-stage img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  @media (max-width: 600px) { .photo-preview { width: calc(100% - 1rem); height: calc(100dvh - 1rem); } }
+</style>

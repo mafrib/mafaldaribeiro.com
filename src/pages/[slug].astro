@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CareerTimeline from '../components/CareerTimeline.astro';
 import DesignPortfolio from '../components/DesignPortfolio.astro';
+import PhotographyPreview from '../components/PhotographyPreview.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => !data.draft);
@@ -29,6 +30,7 @@ const { Content } = await render(page);
       <Content />
     </div>}
   </article>}
+  {page.data.slug === 'photography' && <PhotographyPreview />}
 </BaseLayout>
 <style>
   .content-page-about { padding-block: 2.5rem 4rem; }
